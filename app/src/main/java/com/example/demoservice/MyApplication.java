@@ -19,11 +19,13 @@ public class MyApplication extends Application {
     public void createChanelNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,
-                                                            "CHANNEL_NAME",
-                                                                NotificationManager.IMPORTANCE_DEFAULT);
+                    "CHANNEL_NAME",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setSound(null, null);
+
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
 
-            if(notificationManager!=null){
+            if (notificationManager != null) {
                 notificationManager.createNotificationChannel(notificationChannel);
             }
 

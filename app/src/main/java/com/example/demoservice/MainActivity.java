@@ -45,7 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void clickStartService() {
         Intent intent = new Intent(this, MyService.class);
-        intent.putExtra("key_data_intent", edt_input.getText().toString().trim());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_song",
+                new Song("Âm thầm bên em","MTP",R.drawable.ic_launcher_foreground,R.raw.atbe));
+        intent.putExtras(bundle);
+
         startService(intent);
     }
 
